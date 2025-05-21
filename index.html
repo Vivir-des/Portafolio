@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio de Jose Osorio</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rojo-oscuro: #8B0000;
+      --cafe: #5C4033;
+      --amarillo-quemado: #D4A373;
+      --beige-quemado: #EADDC4;
+      --naranja: #D2691E;
+      --texto: #2E2E2E;
+      --fondo: #FAF5E9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--beige-quemado), var(--fondo));
+      color: var(--texto);
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(139, 0, 0, 0.5); /* rojo oscuro translúcido */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      color: var(--beige-quemado);
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 70px;
+    }
+
+    .nombre {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: var(--beige-quemado);
+      font-weight: 700;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--beige-quemado);
+      z-index: 10;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--beige-quemado);
+      font-weight: 600;
+      margin: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--amarillo-quemado);
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    @media(min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        margin-left: 2rem;
+      }
+    }
+
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background-color: var(--rojo-oscuro);
+      color: var(--beige-quemado);
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer .footer-logo img {
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+
+    footer .footer-secciones {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 3rem;
+      margin-top: 1.5rem;
+    }
+
+    footer .footer-secciones div {
+      text-align: left;
+    }
+
+    footer .footer-secciones h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    footer .footer-secciones a {
+      color: var(--beige-quemado);
+      text-decoration: none;
+      margin: 0.5rem 0;
+    }
+
+    footer .footer-secciones a:hover {
+      color: var(--amarillo-quemado);
+    }
+
+    footer a {
+      color: var(--beige-quemado);
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: var(--amarillo-quemado);
+    }
+
+ .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+
+.web-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 400px;
+}
+
+.web-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Estilo para el título de la sección de desarrollo web */
+#desarrollo-web h2 {
+  text-align: center;
+  color: var(--rojo-oscuro);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease-out both;
+}
+
+/* Animación sutil de subida */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-content">
+      <div class="logo">
+        <img src="img/logo_vivir_Beige.png" alt="Logo de Jose Osorio" />
+      </div>
+
+      <h1 class="nombre">Jose Osorio</h1>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <!-- Aquí empieza el contenido de la página -->
+   <section id="desarrollo-web" style="margin-top: 4rem;">
+  <h2>Desarrollo y diseño web</h2>
+  <div class="card-container">
+    <!-- Card 1 -->
+    <a href="https://memoriasdigitales.my.canva.site/" class="web-card" target="_blank">
+      <div class="card-img"> <img src="img/telarvioleta.png" alt="Telar Violeta"></div>
+      <div class="card-content">
+        <h3>Diseño Web - Telar Violeta (Maquetación y conceptualización básica) </h3>
+        <p>Desarrolle parte de la imagen de la web de Telar Violeta, un proyecto que busca la conmemoracion historica de el conflicto armado colombiano y su efecto sobre las V.B.G, se prioriza que el diseño sea atractivo y dinamico para el publico objetivo </p>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="https://glucloud.com/?view=pagetify.preview" class="web-card" target="_blank">
+      <div class="card-img"> <img src="img/GlucloudPreregulacion.png" alt=""></div>
+      <div class="card-content">
+        <h3>Rediseño Web Glucloud (enero 2025)</h3>
+        <p>Despues de analizar la página web de Glucloud encontre que habian defectos en la navegación que impedian a los usuarios realizar sus compras de manera dinamica y sencilla, por lo cual, propuse un rediseño el cual estuvo activo hasta el 8 de mayo del 2025, priorice el proceso de compra y la experiencia de usuario. Lo principal era facilitar la compra y la busqueda de los productos en la página</p>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="https://glucloud.com/" class="web-card" target="_blank">
+      <div class="card-img"><img src="img/glucloudpostregulación.png" alt=""></div>
+      <div class="card-content">
+        <h3>Rediseño Web Glucloud (Ley 2354 de 2024)</h3>
+        <p>Al entrar en vigor la ley 2354 de 2024, la empresa Glucloud se vio obligada a rediseñar su sitio web, mi prioridad era escuchar las necesidades legales de la empresa y aplicarlas a un disñeo funcional y sobrio que permitiera a los clientes tener una experiencia completa en vigor de la ley.</p>
+      </div>
+    </a>
+
+    <!-- Plantilla para copiar -->
+    <!--
+    <a href="https://link-del-proyecto.com" class="web-card" target="_blank">
+      <div class="card-img" style="background-image: url('URL-DE-TU-IMAGEN');"></div>
+      <div class="card-content">
+        <h3>Nombre del Proyecto</h3>
+        <p>Descripción breve del proyecto.</p>
+      </div>
+    </a>
+    -->
+  </div>
+</section>
+
+
+    <!-- Aquí termina el contenido de la página -->
+  </main>
+
+  <!-- FOOTER -->
+
+    <footer>
+  <div class="footer-logo">
+    <img src="img/logo_jose_beige.png" alt="Logo de Jose Osorio" />
+  </div>
+
+  <div class="footer-secciones">
+    <div>
+      <h3><a href="contacto.html" style="text-decoration: none; font-weight: 600;">Contacto</a></h3>
+      <a href="mailto:joseosorio@example.com">joseosorio@example.com</a><br>
+      <a href="tel:+1234567890">+1 (234) 567-890</a>
+    </div>
+
+    <div>
+      <h3><a href="certificaciones.html" style="text-decoration: none; font-weight: 600;">Certificaciones</a></h3>
+      <!-- Solo el botón principal sin enlaces individuales -->
+    </div>
+  </div>
+      <br>
+  <p>&copy; 2025 Jose Osorio. Todos los derechos reservados.</p>
+  <p>Diseño y desarrollo con cariño.</p>
+</footer>
+      
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
